@@ -1,6 +1,6 @@
-// controllers/reviewController.js
-const Review = require('../models/Review');
+
 const Book = require('../models/Book');
+const Review = require('../models/Review');
 
 exports.addReview = async (req, res) => {
   const existing = await Review.findOne({ user: req.user.id, book: req.params.id });

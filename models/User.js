@@ -18,10 +18,3 @@ userSchema.methods.comparePassword = function(candidatePassword) {
 
 module.exports = mongoose.model('User', userSchema);
 
-
-
-// {
-//     "_id": ObjectId,
-//     "username": String,
-//     "password": String
-//   }

@@ -1,10 +1,11 @@
-// controllers/authController.js
+
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 exports.signup = async (req, res) => {
   try {
     const user = new User(req.body);
+    console.log("i am inn")
     await user.save();
     res.status(201).json({ message: 'User created' });
   } catch (err) {
@@ -20,6 +21,6 @@ exports.login = async (req, res) => {
   }
 
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-  res.json({ token });
+   res.status(201).json({ message: 'User Loged in Succesfully' });
 };
 
