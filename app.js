@@ -3,17 +3,17 @@ const app = express();
 const authRoutes = require('./routes/authRoutes');
 const bookRoutes = require('./routes/bookRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
+const cors = require('cors'); // <--- ADD THIS LINE
 
-app.use(express.json());
+app.use(cors());
+app.use(express.json()); 
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Book Review API');
 });
 
-// Mount authRoutes without a path prefix
 app.use(authRoutes);
 
-// Other routes
 app.use('/api/books', bookRoutes);
 app.use('/api/reviews', reviewRoutes);
 
